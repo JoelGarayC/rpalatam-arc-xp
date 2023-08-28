@@ -1,0 +1,41 @@
+header {
+  background-color: #f6f6f6;
+  border-radius: 0.5rem;
+  color: #0b0b0b;
+  font-family: 'Inter', sans-serif;
+  padding: 10px 0;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav a {
+  color: #1d1d1d;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffc300;
+}
+
+@media (prefers-color-scheme: dark) {
+  header {
+    background-color: #333;
+    color: white;
+  }
+  nav a {
+    color: white;
+  }
+}

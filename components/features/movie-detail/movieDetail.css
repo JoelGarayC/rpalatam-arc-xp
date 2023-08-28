@@ -1,0 +1,13 @@
+.movie {
+  font-family: 'Inter', sans-serif;
+  margin: 0 auto;
+  max-width: 30rem;
+  padding: 1rem;
+}
+
+.movie img {
+  aspect-ratio: 0;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  width: 100%;
+}
