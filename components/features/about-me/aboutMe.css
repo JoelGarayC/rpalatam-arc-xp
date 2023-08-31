@@ -1,10 +1,58 @@
 .about-me {
   font-family: 'Inter', sans-serif;
+  line-height: 1.5;
   margin: 0 auto;
-  max-width: 50rem;
+  max-width: 800px;
 }
 
 .about-me h1 {
-  font-size: 2.25rem;
-  font-weight: 900;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.about-me__info {
+  align-items: center;
+  border-radius: 0.5rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+}
+
+.about-me__info > div {
+  background-color: var(--card-color);
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 10rem;
+  padding: 1.5rem;
+}
+
+.about-me__info article {
+  align-items: center;
+  border-radius: 0.3rem;
+  display: flex;
+  height: 10rem;
+  justify-content: center;
+}
+
+.about-me__info article p {
+  color: white;
+  display: block;
+  padding: 1rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(41, 41, 41, 0.883);
+}
+
+@media (max-width: 650px) {
+  .about-me h1 {
+    text-align: center;
+  }
+  .about-me__info {
+    grid-template-columns: 1fr;
+  }
 }

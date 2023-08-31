@@ -1,10 +1,21 @@
 import React from 'react'
+import Theme from '../theme/default'
 import './header.css'
 
 const Header = () => {
+  const fechaActual = fechaActualLocal()
+
   return (
-    <header>
-      <nav>
+    <div className='header'>
+      <div className='header__date'>
+        <small>{fechaActual}</small>
+      </div>
+      <section className='header__title'>
+        <h1>
+          <a href='/pf/about-me/?_website=rpalatam'>Day's Newspaper</a>
+        </h1>
+      </section>
+      <nav className='header__nav'>
         <ul>
           <li>
             <a href={`/pf/about-me/?_website=rpalatam`}>About Me</a>
@@ -16,15 +27,16 @@ const Header = () => {
           </li>
           <li>
             <a href='/pf/detail-movie/halo/?_website=rpalatam'>
-              Detalle de Película
+              Buscar Película
             </a>
           </li>
+
           <li>
-            <a href='/pf/about-me/subsection/?_website=rpalatam'>Subsección</a>
+            <Theme />
           </li>
         </ul>
       </nav>
-    </header>
+    </div>
   )
 }
 
@@ -34,3 +46,39 @@ Header.label = {
 }
 
 export default Header
+
+function fechaActualLocal() {
+  const fechaActual = new Date()
+
+  const diasSemana = [
+    'Domingo',
+    'Lunes',
+    'Martes',
+    'Miércoles',
+    'Jueves',
+    'Viernes',
+    'Sábado'
+  ]
+
+  const meses = [
+    'enero',
+    'febrero',
+    'marzo',
+    'abril',
+    'mayo',
+    'junio',
+    'julio',
+    'agosto',
+    'septiembre',
+    'octubre',
+    'noviembre',
+    'diciembre'
+  ]
+
+  const diaSemana = diasSemana[fechaActual.getDay()]
+  const dia = fechaActual.getDate()
+  const mes = meses[fechaActual.getMonth()]
+  const año = fechaActual.getFullYear()
+
+  return diaSemana + ', ' + dia + ' de ' + mes + ' de ' + año
+}

@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin: 1rem;
+  margin-top: 1.5rem;
+}
+
+:root.light,
+:root {
+  --card-color: #f3f3f3;
+  --text-color: rgb(38, 38, 38);
+  --border-color: #e0e0e0;
+  --border-color-head: #f8f8f8;
+  --background-color: #ffffff;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+:root.dark {
+  --card-color: #242424;
+  --text-color: #f8f8f8;
+  --border-color: #303030;
+  --background-color: #181818;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-color: #242424;
+    --text-color: #f8f8f8;
+    --border-color: #303030;
+    --background-color: #181818;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+}
+
+.mouse-circle {
+  background: radial-gradient(
+    circle at center,
+    rgba(113, 113, 113, 0.104) 10%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  height: 1000px;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  z-index: 9999;
+}

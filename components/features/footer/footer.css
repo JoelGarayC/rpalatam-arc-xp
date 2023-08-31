@@ -1,0 +1,11 @@
+.footer {
+  align-items: center;
+  background-color: var(--card-color);
+  border-radius: 0.5rem;
+  display: flex;
+  font-family: 'Inter', sans-serif;
+  height: 8rem;
+  justify-content: center;
+  margin: 1rem;
+  text-align: center;
+}

@@ -1,8 +1,18 @@
 .movie {
+  display: grid;
   font-family: 'Inter', sans-serif;
+  gap: 1rem;
   margin: 0 auto;
   max-width: 30rem;
   padding: 1rem;
+}
+
+.movie__search input {
+  background-color: var(--card-color);
+  border: 1px solid var(--card-color);
+  font-size: inherit;
+  padding: 0.5rem 1rem;
+  width: 100%;
 }
 
 .movie img {

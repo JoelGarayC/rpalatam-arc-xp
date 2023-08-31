@@ -8,6 +8,7 @@ const MovieDetail = (props) => {
   //   customFields: { nameMovie }
   // } = props
   const { globalContent } = useAppContext()
+  const [search, setSearch] = React.useState(globalContent?.Title || '')
 
   // const data = useContent({
   //   source: 'movie-find',
@@ -20,7 +21,10 @@ const MovieDetail = (props) => {
   console.log(globalContent)
 
   return (
-    <div className="movie">
+    <div className='movie'>
+      <section className='movie__search'>
+        <input type='text' placeholder='Escribe el nombre de la película' />
+      </section>
       <h1>{globalContent?.Title}</h1>
       <h3>Año: {globalContent?.Year}</h3>
       <p>Género: {globalContent?.Genre}</p>

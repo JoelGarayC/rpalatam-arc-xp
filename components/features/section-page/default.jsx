@@ -9,17 +9,17 @@ const SectionPage = (props) => {
 
   if (globalContent?.content_elements?.length === 0) {
     return (
-      <section className="section">
+      <section className='section'>
         <p>No se encontraron noticias en esta sección</p>
       </section>
     )
   }
 
   return (
-    <section className="section">
-      <h1>Comunidad Rpa</h1>
+    <section className='section'>
+      <h1>Comunidad RPA</h1>
 
-      <div className="section__articles">
+      <div className='section__articles'>
         {globalContent?.content_elements?.map((item) => {
           return (
             <a
@@ -27,8 +27,12 @@ const SectionPage = (props) => {
               href={`/pf${item?.canonical_url}?_website=${item?.website}`}
             >
               <div>
+                <small>Noticia</small>
                 <h2>{item?.headlines?.basic}</h2>
                 <p>{item?.subheadlines?.basic}</p>
+                <small className='item__date'>
+                  {item?.display_date?.substr(0, 10)}
+                </small>
               </div>
               <picture>
                 {item?.content_elements?.map((element) => {
@@ -38,7 +42,7 @@ const SectionPage = (props) => {
                         key={element?._id}
                         src={element?.url}
                         alt={element?.subtitle}
-                        className="image"
+                        className='image'
                       />
                     )
                   }

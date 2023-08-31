@@ -11,14 +11,14 @@ const NotaDetail = (props) => {
   const date = isoDate?.substr(0, 10)
 
   return (
-    <div className="nota">
+    <div className='nota'>
       <h1>{globalContent?.headlines?.basic}</h1>
       <h2>{globalContent?.subheadlines?.basic}</h2>
       <h3>{date}</h3>
       <section>
         {globalContent?.content_elements?.map((nota) => {
           return (
-            <div key={nota?._id}>
+            <div key={nota?._id} className='item'>
               {nota?.type === 'text' && (
                 <p dangerouslySetInnerHTML={{ __html: nota?.content }} />
               )}

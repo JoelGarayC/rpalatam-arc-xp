@@ -1,0 +1,8 @@
+.theme {
+  background-color: var(--text-color);
+  border: none;
+  border-radius: 0.3rem;
+  color: var(--background-color);
+  cursor: pointer;
+  padding: 0.3rem 0.4rem;
+}
