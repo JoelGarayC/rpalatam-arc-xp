@@ -3,13 +3,17 @@
 import PropTypes from 'prop-types'
 import './aboutMe.css'
 
-const AboutMe = ({ customFields: { isEnabled } }) => {
+const AboutMe = ({
+  customFields: {
+    isEnabled,
+    firstName = '',
+    lastName = '',
+    birthYear = 0,
+    country = ''
+  }
+}) => {
   // const { arcSite } = useAppContext()
   // const { nombre, descripcion } = getProperties(arcSite)
-  const firstName = 'Joel '
-  const lastName = 'Garay'
-  const birthYear = 2000
-
   const frasesAleatorias = [
     'El único modo de hacer un gran trabajo es amar lo que haces.',
     'No temas a los cambios, abrázalos.',
@@ -60,7 +64,7 @@ const AboutMe = ({ customFields: { isEnabled } }) => {
             <p>Nombres: {firstName}</p>
             <p>Apellidos: {lastName}</p>
             <p>Año de Nacimiento: {birthYear}</p>
-            <p>Pais: Perú</p>
+            <p>Pais: {country}</p>
           </div>
           <article
             style={{
@@ -70,6 +74,33 @@ const AboutMe = ({ customFields: { isEnabled } }) => {
           >
             <p>{fraseActual}</p>
           </article>
+
+          <article className='logo'>
+            <svg
+              width='100%'
+              height='100%'
+              viewBox='-10.5 -9.45 21 18.9'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <circle cx='0' cy='0' r='2' fill='currentColor'></circle>
+              <g stroke='currentColor' fill='none'>
+                <ellipse rx='10' ry='4.5'></ellipse>
+                <ellipse rx='10' ry='4.5' transform='rotate(60)'></ellipse>
+                <ellipse rx='10' ry='4.5' transform='rotate(120)'></ellipse>
+              </g>
+            </svg>
+          </article>
+          <section>
+            <p>
+              Imagina un universo donde las ideas cobran vida con cada línea de
+              código que se escribe. Este es el mundo que me cautivó desde el
+              primer instante en que emprendí mi viaje en el desarrollo de
+              software. La capacidad de transformar conceptos abstractos en
+              aplicaciones concretas se convirtió en mi pasión y motor en este
+              emocionante recorrido.
+            </p>
+          </section>
         </div>
       )}
     </div>
@@ -81,7 +112,23 @@ AboutMe.propTypes = {
     isEnabled: PropTypes.bool.tag({
       name: 'Esta activo',
       description: 'Esta activo componente',
-      defaultValue: false
+      defaultValue: true
+    }),
+    firstName: PropTypes.string.tag({
+      name: 'Nombres',
+      defaultValue: 'Joel'
+    }),
+    lastName: PropTypes.string.tag({
+      name: 'Apellidos',
+      defaultValue: 'Garay'
+    }),
+    birthYear: PropTypes.number.tag({
+      name: 'Año de Nacimiento',
+      defaultValue: 2000
+    }),
+    country: PropTypes.string.tag({
+      name: 'Pais',
+      defaultValue: 'Perú'
     })
   })
 }

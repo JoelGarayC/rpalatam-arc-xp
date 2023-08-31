@@ -10,6 +10,7 @@
 .movie__search input {
   background-color: var(--card-color);
   border: 1px solid var(--card-color);
+  color: var(--text-color);
   font-size: inherit;
   padding: 0.5rem 1rem;
   width: 100%;

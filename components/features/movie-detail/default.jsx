@@ -1,3 +1,4 @@
+import { useContent } from 'fusion:content'
 import { useAppContext } from 'fusion:context'
 // import PropTypes from 'prop-types'
 import React from 'react'
@@ -8,30 +9,45 @@ const MovieDetail = (props) => {
   //   customFields: { nameMovie }
   // } = props
   const { globalContent } = useAppContext()
-  const [search, setSearch] = React.useState(globalContent?.Title || '')
+  const [search, setSearch] = React.useState('')
+  const [input, setInput] = React.useState('')
 
-  // const data = useContent({
-  //   source: 'movie-find',
-  //   query: {
-  //     movieTitle: globalContent
-  //   }
-  // })
+  const handleChange = (e) => {
+    setInput(e.target.value)
+  }
 
-  const data = {}
-  console.log(globalContent)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setSearch(input)
+
+    const newURL = `http://localhost/pf/detail-movie/${input}/?_website=rpalatam`
+    window.history.pushState(null, '', newURL)
+  }
+
+  const data = useContent({
+    source: 'movie-find',
+    query: {
+      movieTitle: search || globalContent?.Title
+    }
+  })
 
   return (
     <div className='movie'>
-      <section className='movie__search'>
-        <input type='text' placeholder='Escribe el nombre de la película' />
-      </section>
-      <h1>{globalContent?.Title}</h1>
-      <h3>Año: {globalContent?.Year}</h3>
-      <p>Género: {globalContent?.Genre}</p>
+      <form className='movie__search' onSubmit={handleSubmit}>
+        <input
+          type='text'
+          placeholder='Escribe el nombre de la película'
+          value={input}
+          onChange={handleChange}
+        />
+      </form>
+      <h1>{data?.Title}</h1>
+      <h3>Año: {data?.Year}</h3>
+      <p>Género: {data?.Genre}</p>
       <picture>
-        <img src={globalContent?.Poster} />
+        <img src={data?.Poster} />
       </picture>
-      <p>Pais: {globalContent?.Country}</p>
+      <p>Pais: {data?.Country}</p>
     </div>
   )
 }

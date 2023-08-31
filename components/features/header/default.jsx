@@ -12,7 +12,7 @@ const Header = () => {
       </div>
       <section className='header__title'>
         <h1>
-          <a href='/pf/about-me/?_website=rpalatam'>Day's Newspaper</a>
+          <a href='/pf/about-me/?_website=rpalatam'>Resplandor Urbano</a>
         </h1>
       </section>
       <nav className='header__nav'>
